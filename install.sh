@@ -42,6 +42,28 @@ download_packages() {
   cp -vf sources/* ${LFS}/sources
 }
 
+install_preparations() {
+  mkdir -pv ${LFS}/tools
+}
+
+install_binutils() {
+  # Q: what is the "--target" option of configure?
+  # thx: https://airs.com/ian/configure/configure_5.html
+
+  cd ${LFS}/sources
+  tar -Jxf binutils-2.31.1.tar.xz
+  mkdir -v binutils-2.31.1/build
+  cd binutils-2.31.1/build
+
+  ../configure --prefix=${LFS}/tools \
+               --with-sysroot=${LFS} \
+               --with-lib-path=${LFS}/tools/lib \
+               --disable-nls \
+               --disable-werror
+  make -j4
+  cd ${LFS}/sources
+}
+
 umount_blk() {
   sync
   umount -v ${LFS}/boot
@@ -51,9 +73,11 @@ umount_blk() {
 run() {
   check_root
   choice_blk
-  #format_blk
+  format_blk
   mount_blk
   download_packages
+  install_preparations
+  install_binutils
   umount_blk
 }
 
