@@ -29,6 +29,7 @@ done
 
 mkdir -pv ${GCC_DIR}/build && cd ${GCC_DIR}/build
 ../configure \
+  --target=${LFS_TGT} \
   --prefix=${LFS}/tools \
   --with-glibc-version=2.11 \
   --with-sysroot=${LFS} \

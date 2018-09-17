@@ -9,6 +9,7 @@ mkdir -pv ${GLIBC_DIR}/build && cd ${GLIBC_DIR}/build
 
 ../configure \
   --prefix=${LFS}/tools \
+  --host=${LFS_TGT} \
   --build=$(../scripts/config.guess) \
   --enable-kernel=3.2 \
   --with-headers=${LFS}/tools/include \

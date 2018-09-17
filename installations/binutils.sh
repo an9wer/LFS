@@ -12,6 +12,7 @@ mkdir -pv ${BINUTILS_DIR}/build && cd ${BINUTILS_DIR}/build
   --prefix=${LFS}/tools \
   --with-sysroot=${LFS} \
   --with-lib-path=${LFS}/tools/lib \
+  --target=${LFS_TGT} \
   --disable-nls \
   --disable-werror
 make -j4

@@ -4,6 +4,7 @@ PWD=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 export BLOCK
 export LFS=/mnt
+export LFS_TGT=$(uname -m)-lfs-linux-gnu
 export SOURCES_DIR=${PWD}/sources
 export INSTALLATIONS_DIR=${PWD}/installations
 
