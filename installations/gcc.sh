@@ -23,12 +23,9 @@ for file in ${GCC_DIR}/gcc/config/{linux,i386/linux{,64}}.h; do
   touch ${file}.orig
 done
 
-case $(uname -m) in
-  x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig ${GCC_DIR}/gcc/config/i386/t-linux64
-     ;;
-esac
+[[ $(uname -m) == 'x86_64' ]] && {
+    sed -e '/m64=/s/lib64/lib/' -i.orig ${GCC_DIR}/gcc/config/i386/t-linux64
+}
 
 mkdir -pv ${GCC_DIR}/build && cd ${GCC_DIR}/build
 ../configure \

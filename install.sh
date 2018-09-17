@@ -15,7 +15,7 @@ choice_block() {
   lsblk -p
   read -p "What is your choice? (e.g. /dev/sdX): " BLOCK
   read -p "We will format '${BLOCK}', are you sure? (y/n): " sure
-  [[ $sure == 'y' ]] || exit 0
+  [[ ${sure} == 'y' ]] || exit 0
 }
 
 format_block() {
@@ -61,6 +61,7 @@ run() {
   . ${INSTALLATIONS_DIR}/binutils.sh || exit 6
   . ${INSTALLATIONS_DIR}/gcc.sh || exit 7
   . ${INSTALLATIONS_DIR}/linux.sh || exit 8
+  . ${INSTALLATIONS_DIR}/glibc.sh || exit 9
 
   umount_block || exit 99
 }

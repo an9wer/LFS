@@ -18,7 +18,7 @@ make -j4
 
 [[ $(uname -m) == x86_64 ]] && {
   mkdir -pv ${LFS}/tools/lib
-  ln -vsf ./lib ${LFS}/tools/lib64
+  ln -vsf lib ${LFS}/tools/lib64
 }
 
 make -j4 install
