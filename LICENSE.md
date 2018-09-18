@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2018 runny wu
+Copyright (c) 2018 an9wer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
